@@ -6,14 +6,12 @@ public:
         int sign = 1;
         int res = 0;
         
-        while(i < s.size()){
-            if(s[i] == ' ') i++;
-            else break;
-        }
+        while(i < s.size() && s[i] == ' ') i++;
         
         if(i < s.size() && (s[i] == '+' || s[i] == '-')){
-            if(s[i] == '+') sign = 1;
-            else if(s[i] == '-') sign = -1;
+            
+            sign = s[i] == '+' ? 1 : -1;
+            
             i++;
         }
         
