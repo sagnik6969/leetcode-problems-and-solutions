@@ -70,14 +70,7 @@ public:
             int n1 = find_parent(i[0]);
             int n2 = find_parent(i[1]);
             
-            
-           // cout << n1 << " " << n2 << " " << mx[n1] << " " << mx[n2] << endl;
-            
-            
-            
-            if(mx[n1] == mx[n2]){
-                ans += mxcnt[n1] * mxcnt[n2];
-            }
+            if(mx[n1] == mx[n2])  ans += mxcnt[n1] * mxcnt[n2];
             
             unite(n1,n2);
             
