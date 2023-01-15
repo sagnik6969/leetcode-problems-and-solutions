@@ -9,7 +9,6 @@ public:
         int ans = 0;
         
         while(j < s.size()){
-            
             cnt[s[j]]++;
             int ch = s[j];
             j++;
