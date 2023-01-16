@@ -76,17 +76,7 @@ public:
         
         vector<vector<int>> dp(m+1,vector<int>(n+1,-1));
         
-        
-        bool ans = rec(s,p,0,0,dp);
-
-        for(auto i:dp){
-            for(auto j:i){
-                cout << j << " ";
-            }
-            cout << endl;
-        }
-
-        return ans;
+        return rec(s,p,0,0,dp);
         
     }
 };
