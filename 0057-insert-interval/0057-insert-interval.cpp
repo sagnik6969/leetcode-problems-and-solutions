@@ -13,11 +13,6 @@ public:
             else break;
         }
         
-        // if(i == intervals.size()){
-        //     ans.push_back(newInterval);
-        //     return ans;
-        // }
-        
         if(ans.empty() || ans.back()[1] < newInterval[0]){
             ans.push_back(newInterval);
         }
@@ -25,10 +20,6 @@ public:
             
             ans.back()[1] = max(ans.back()[1],newInterval[1]);
         }
-        
-        // for(auto x:ans){
-        //     cout << x[0] << " " << x[1] << endl;
-        // }
         
         for(;i < intervals.size() ; i++){
             
@@ -38,10 +29,6 @@ public:
             
         }
         
-        return ans;
-        
-        
-        
-        
+        return ans;        
     }
 };
