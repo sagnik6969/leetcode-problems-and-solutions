@@ -29,14 +29,12 @@ public:
         for(int i = 0 ; i < m ; i++) dfs(i,n-1,board,visited);
         for(int i = 0 ; i < n ; i++) dfs(m-1,i,board,visited);
         
-//         for(auto i:visited){
-//             for(auto )
-//         }
-        
+
         
         for(int i = 0 ; i < m ; i++){
             
             for(int j = 0 ; j < n ; j++){
+                
                 if(visited[i][j] == 0) board[i][j] = 'X';
             }
             
