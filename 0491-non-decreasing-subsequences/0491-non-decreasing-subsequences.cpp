@@ -4,8 +4,7 @@ public:
     void rec(int idx,vector<int> &arr,vector<int> &curr,set<vector<int>> &ans){
         
         if(idx == arr.size()){
-            if(curr.size() > 1)
-                ans.insert(curr);
+            if(curr.size() > 1) ans.insert(curr);
             return;
         }
         
