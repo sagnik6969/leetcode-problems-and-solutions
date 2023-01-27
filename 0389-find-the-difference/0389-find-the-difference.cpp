@@ -13,6 +13,8 @@ public:
     
     char findTheDifference(string s, string t) {
         
+      return better_approach(s,t);
+        
       int arr[26] = {0};
         
       for(auto i:s) arr[i-'a']++;
