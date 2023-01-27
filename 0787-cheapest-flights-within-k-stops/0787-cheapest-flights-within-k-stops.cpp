@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int dfs(vector<vector<pair<int,int>>> &adj,int dst,int src,int k,vector<vector<int>> &dp){
+    int dfs(vector<vector<pair<int,int>>> &adj,int dst,int src,int k,vector<vector<int>> &dp){   
+        // here decreasing k will prevent infinite loop
         
         if(src == dst) return 0;
         
@@ -8,20 +9,13 @@ public:
         
         if(dp[src][k] != -1) return dp[src][k];
         
-        
         int ans = INT_MAX;
         
         for(auto i:adj[src]){
             
-            // if(visited[i.first] == 0){
-                
                 int curr = dfs(adj,dst,i.first,k-1,dp);
                 
-                if(curr != INT_MAX) ans = min(ans,i.second+curr);
-                
-            // }
-            
-            
+                if(curr != INT_MAX) ans = min(ans,i.second+curr);            
         }
         
         dp[src][k] = ans;
