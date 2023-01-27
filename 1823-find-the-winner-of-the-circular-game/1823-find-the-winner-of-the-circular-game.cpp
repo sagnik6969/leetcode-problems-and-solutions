@@ -10,7 +10,7 @@ public:
         
         while(q.size() != 1){
             
-           // int curr = k % q.size();
+           int curr = (k + 1) % q.size();
             
            // cout << curr << endl;
             
