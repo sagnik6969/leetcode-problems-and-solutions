@@ -7,7 +7,7 @@ public:
         
         while(n != 0){
             
-            res += (n % 2);
+            res += (n&1);
             
             n >>= 1;
             
