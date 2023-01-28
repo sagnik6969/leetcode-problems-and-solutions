@@ -1,8 +1,9 @@
 class SummaryRanges {
 public:
     
-   
-    vector<vector<int>> v;
+  
+    map<int,int> begin_to_end;
+    map<int,int> end_to_begin;
     set<int> s;
     
     SummaryRanges() {
@@ -10,19 +11,44 @@ public:
     }
     
     void addNum(int value) {
+
+        if(s.find(value) == s.end()) s.insert(value);
+        else return; 
+       
+        int begin = value;
+        int end = value;
         
-        s.insert(value);
+        if(begin_to_end.find(value+1) != begin_to_end.end()){
+            end = begin_to_end[value+1];
+            end_to_begin.erase(end);
+            begin_to_end.erase(value+1); 
+        }
         
+        if(end_to_begin.find(value-1) != end_to_begin.end()){
+            begin = end_to_begin[value-1];
+            begin_to_end.erase(begin);
+            end_to_begin.erase(value-1);
+        }
+        
+        begin_to_end[begin] = end;
+        end_to_begin[end] = begin;
+
+        //cout << "value = " << value << endl;
+
+        // for(auto i:begin_to_end) cout << i.first << " " << i.second << endl;
+        // cout << endl;
+
+        // for(auto i:end_to_begin) cout << i.first << " " << i.second << endl;
+        // cout << endl;
+      
+      
     }
     
     vector<vector<int>> getIntervals() {
         vector<vector<int>> v;
-        int prev = -7;
         
-        for(auto i:s){
-            if(i == prev + 1) v.back()[1] = i;
-            else v.push_back({i,i});
-            prev = i;
+        for(auto i:begin_to_end){
+            v.push_back({i.first,i.second});
         }
         
         return v;
