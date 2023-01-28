@@ -32,24 +32,13 @@ public:
         
         begin_to_end[begin] = end;
         end_to_begin[end] = begin;
-
-        //cout << "value = " << value << endl;
-
-        // for(auto i:begin_to_end) cout << i.first << " " << i.second << endl;
-        // cout << endl;
-
-        // for(auto i:end_to_begin) cout << i.first << " " << i.second << endl;
-        // cout << endl;
-      
-      
+        
     }
     
     vector<vector<int>> getIntervals() {
         vector<vector<int>> v;
         
-        for(auto i:begin_to_end){
-            v.push_back({i.first,i.second});
-        }
+        for(auto i:begin_to_end) v.push_back({i.first,i.second});
         
         return v;
     }
