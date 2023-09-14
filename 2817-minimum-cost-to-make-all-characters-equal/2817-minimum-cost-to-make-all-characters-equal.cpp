@@ -1,3 +1,16 @@
+long long better_approach(string &s){
+
+    long long ans = 0;
+    
+    for(int i = 0 ; i < s.size()-1 ; i++){
+           if(s[i] != s[i+1]) ans += min(i+1,(int)s.size()-(i+1));
+    }
+
+    return ans;
+}
+
+
+
 class Solution {
 public:
     
@@ -68,6 +81,8 @@ public:
     
     
     long long minimumCost(string s) {
+
+      return better_approach(s);
         
       return  min(f1(s),f2(s));
         
