@@ -1,16 +1,11 @@
 class Solution {
 public:
-    
-    
+        
     bool f(int n,int sum){
-
         if(n == sum) return true;
         if(n < 0) return false;
         if(sum == 0 && n != 0) return false;
-        
-        bool ans = false;
-        
-        long long s = 0;
+        int s = 0;
         int cnt = 1;
         
         while(sum != 0){
@@ -22,26 +17,16 @@ public:
             if(f(n-s,sum)) return true;
             
         }
-    
         return false;
-       
     }
     
     
     int punishmentNumber(int n) {
         
-        //dp = unordered_map<long long,bool>();
-        
         int ans = 0;
         
-       // cout << f(15,225) << endl;
-        
         for(int i = 1 ; i <= n ; i++){
-            if(f(i,i * i)){
-            
-             //   cout << i << endl;
-                ans += i*i;
-            }
+            if(f(i,i * i)) ans += i*i;
         }
         
         return ans;
