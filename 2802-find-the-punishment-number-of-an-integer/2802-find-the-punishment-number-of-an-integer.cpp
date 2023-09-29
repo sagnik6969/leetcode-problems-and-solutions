@@ -1,21 +1,14 @@
 class Solution {
 public:
     
-    //unordered_map<long long,bool> dp;
     
-    bool f(long long n,long long sum){
-        //cout << n << " " << sum << endl;
-         if(n == sum) return true;
+    bool f(int n,int sum){
+
+        if(n == sum) return true;
         if(n < 0) return false;
         if(sum == 0 && n != 0) return false;
-       
-        
-        //if(dp.count((sum << 10) + n)) return dp[(sum << 10) + n];
         
         bool ans = false;
-        
-        long long or_n = n;
-        long long or_sum = sum;
         
         long long s = 0;
         int cnt = 1;
@@ -25,18 +18,12 @@ public:
             s += (sum % 10) * cnt;
             cnt *= 10;
             sum /= 10;
+
+            if(f(n-s,sum)) return true;
             
-            //if(or_n == 10 && or_sum == 22) cout << "test " <<  n << " " << s << " " << sum << endl;
-            
-            if(f(n-s,sum)){
-                ans = true;
-                break;
-            }
         }
-        
-        
-        //dp[(or_sum << 10) + or_n] = ans; 
-        return ans;
+    
+        return false;
        
     }
     
