@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    unordered_map<long long,bool> dp;
+    //unordered_map<long long,bool> dp;
     
     bool f(long long n,long long sum){
         //cout << n << " " << sum << endl;
@@ -10,7 +10,7 @@ public:
         if(sum == 0 && n != 0) return false;
        
         
-        if(dp.count((sum << 10) + n)) return dp[(sum << 10) + n];
+        //if(dp.count((sum << 10) + n)) return dp[(sum << 10) + n];
         
         bool ans = false;
         
@@ -35,7 +35,7 @@ public:
         }
         
         
-        dp[(or_sum << 10) + or_n] = ans; 
+        //dp[(or_sum << 10) + or_n] = ans; 
         return ans;
        
     }
