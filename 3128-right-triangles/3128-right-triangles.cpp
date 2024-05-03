@@ -1,8 +1,8 @@
 class Solution {
 public:
     long long numberOfRightTriangles(vector<vector<int>>& grid) {
-        unordered_map<int,int> col;
-        unordered_map<int,int> row;
+        vector<int> col(grid[0].size(),0);
+        vector<int> row(grid.size(),0);
         for(int i = 0 ; i < grid.size() ; i++){
             for(int j = 0 ; j < grid[0].size() ; j++){
                 if(grid[i][j] == 1){
