@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long wonderfulSubstrings(string word) {
-        map<int,int> m;
+        unordered_map<int,int> m;
         m[0] = 1;
         long long ans = 0;
         int prev = 0;
@@ -14,7 +14,7 @@ public:
             }
             m[curr]++;
             prev = curr;
-            //cout << ans << endl;
+
         }
 
         return ans;
