@@ -4,9 +4,9 @@ public:
         priority_queue<int> q;
 
         for (auto i:happiness) q.push(i);
-        int ans = 0;
+        long long ans = 0;
         for(int i = 0 ; i < k ; i++){
-            int curr = max(0,q.top() - i);
+            long long curr = max(0,q.top() - i);
             ans += curr;
             q.pop();
         }
