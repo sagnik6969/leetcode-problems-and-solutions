@@ -19,7 +19,7 @@ public:
      for(int i = 0 ; i < k-1 ; i++){
         int x = q.top().first;
         int y = q.top().second;
-        cout << v[x] << " " << v[y] << endl;
+        //cout << v[x] << " " << v[y] << endl;
         q.pop();
         y--;
 
