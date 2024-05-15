@@ -109,18 +109,14 @@ public:
         }
 
 
-        // for(auto i:dist){
-        //     for(auto j:i) cout << j << " ";
-        //     cout << endl;
-        // }
+        
 
         int low = 0;
-        int high = 2 * grid.size();
+        int high = 2 * grid.size() - 2;
         int ans = 0;
-       // cout << bfs(grid,dist,1) << endl;
         while(low <= high){
             int mid = (low + high) / 2;
-            //cout << mid << endl;
+            
             if(bfs(grid,dist,mid)){
                 ans = mid;
                 low = mid+1;
