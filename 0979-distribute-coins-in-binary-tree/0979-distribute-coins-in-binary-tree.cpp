@@ -22,7 +22,7 @@ public:
 
       ans += abs(n1) + abs(n2);
 
-      return n1 + n2;
+      return (n1 + n2 + root -> val) - 1;
 
    }
     int distributeCoins(TreeNode* root) {
