@@ -1,7 +1,7 @@
 class FindSumPairs {
 public:
     vector<int> v1,v2;
-    map<int,int> m;
+    unordered_map<int,int> m;
 
     FindSumPairs(vector<int>& nums1, vector<int>& nums2) {
         v1 = nums1;
@@ -13,8 +13,8 @@ public:
     
     void add(int index, int val) {
 
-        m[v2[index]]--;
-        if(m[v2[index]] == 0) m.erase(v2[index]);
+        if(m[v2[index]] == 1) m.erase(v2[index]);
+        else m[v2[index]]--;
 
         v2[index] += val;
 
