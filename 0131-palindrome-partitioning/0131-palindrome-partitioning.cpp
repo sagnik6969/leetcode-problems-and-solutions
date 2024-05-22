@@ -1,51 +1,47 @@
 class Solution {
 public:
-    
-    vector<vector<int>> dp;
-    
     bool is_pal(string &s,int i,int j){
-        
-        if(i >= j) return true;
-        
-        if(dp[i][j] != -1) return dp[i][j];
-        
-        return (s[i] == s[j]) && is_pal(s,i+1,j-1);
-        
+        while(i < j){
+            if(s[i] != s[j]) return false;
+            i++;
+            j--;
+        }
+
+        return true;
+
     }
-    
-    void rec(int idx,string &s,vector<string> &curr,vector<vector<string>> &ans){
-        
-        if(idx == s.size()){
-            ans.push_back(curr);
+
+    void rec(string &s,vector<vector<string>> &ans,vector<string> &curr_v,string &curr_s,int idx){
+        if(idx == s.size()) {
+            if(curr_s == "") ans.push_back(curr_v);
             return;
         }
-        
-        for(int i = idx ; i < s.size() ; i++){
-            
-            if(is_pal(s,idx,i)){
-                curr.push_back(s.substr(idx,i - idx + 1));
-                rec(i+1,s,curr,ans);
-                curr.pop_back();
-            }
-            
+
+        curr_s.push_back(s[idx]);
+        rec(s,ans,curr_v,curr_s,idx+1);
+
+        if(is_pal(curr_s,0,curr_s.size() - 1)) {
+           string temp = "";
+           curr_v.push_back(curr_s);
+           rec(s,ans,curr_v,temp,idx+1);
+           curr_v.pop_back();
         }
-        
-        
+
+
+
+        curr_s.pop_back();
+
+
     }
-    
-    
+
     vector<vector<string>> partition(string s) {
-        
-        int n = s.size();
-        
-        vector<string> curr;
+
         vector<vector<string>> ans;
-        
-        dp = vector<vector<int>>(n,vector<int>(n,-1));
-        
-        rec(0,s,curr,ans);
+        vector<string> curr_v;
+        string curr_s = "";
+
+        rec(s,ans,curr_v,curr_s,0);
         
         return ans;
-        
     }
 };
