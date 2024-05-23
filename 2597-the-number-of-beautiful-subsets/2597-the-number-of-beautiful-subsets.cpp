@@ -3,7 +3,7 @@ public:
     bool is_valid(int x){
         return x >= 0 && x <= 1000;
     }
-    void f(vector<int>& nums, int k,vector<int> curr,int idx,int &ans){
+    void f(vector<int>& nums, int k,vector<int> &curr,int idx,int &ans){
         if(idx == nums.size()){
              ans++;
              return;
