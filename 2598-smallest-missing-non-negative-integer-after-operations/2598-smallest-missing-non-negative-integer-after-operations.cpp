@@ -12,9 +12,13 @@ public:
         else m[i % value]++;
         } 
 
-        int mn = (nums[0] % value);
+        int mn = INT_MAX;
 
         for(auto i:m){
+            if(mn == INT_MAX){
+                mn = i.first;
+                continue;
+            }
             if(m[mn] > i.second) mn = i.first;
             else if(m[mn] == i.second && i.first < mn) mn = i.first; 
         }
